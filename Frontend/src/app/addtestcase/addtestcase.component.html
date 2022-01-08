@@ -1,0 +1,73 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+      <h5 id="response" class="text-danger" ></h5>
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Add Test Case</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" #testcaseForm="ngForm" enctype="multipart/form-data" >
+            <!-- 
+<div class="form-group">
+              <label for="uname1">ID</label>
+              <input [(ngModel)]="addtestcaseData.step7" class="form-control rounded-0"  name="Name" type="text" required>
+            </div>
+            -->
+              
+            
+
+            <div class="form-group">
+              <label for="file" class="mr-2">Upload Test Case</label>
+              <input type="file"
+                     id="file"  name="file"
+                     (change)="handleFileInput($event.target.files)">
+                     <!--<button (click)="addfile()" type="button"  class="btn btn-success float-right">Add File</button>
+                     -->
+            </div>
+            <!--
+              <div class="form-group">
+              
+              <input placeholder="Enter step 1"  [(ngModel)]="addtestcaseData.step1" class="form-control rounded-0"  name="Step1" type="text" required>
+            </div>
+            <div class="form-group">
+
+              <input placeholder="Enter step 2" [(ngModel)]="addtestcaseData.step2"  class="form-control rounded-0"  name="Step2" type="text" required>
+            </div>
+            <div class="form-group">
+
+              <input placeholder="Enter step 3" [(ngModel)]="addtestcaseData.step3"  class="form-control rounded-0"  name="Step3" type="text" required>
+            </div>
+            
+            <div class="form-group">
+
+              <input placeholder="Enter step 4" [(ngModel)]="addtestcaseData.step4"  class="form-control rounded-0"  name="Step4" type="text" required>
+            </div>
+            <div class="form-group">
+
+              <input placeholder="Enter step 5" [(ngModel)]="addtestcaseData.step5"  class="form-control rounded-0"  name="Step5" type="text" required>
+            </div>
+            <div class="form-group">
+
+              <input  placeholder="Enter step 6" [(ngModel)]="addtestcaseData.step6" class="form-control rounded-0"  name="Step6" type="text" required>
+            </div>
+            <div class="form-group">
+
+              <input  placeholder="Enter step 7" [(ngModel)]="addtestcaseData.step7" class="form-control rounded-0"  name="Step7" type="text" required>
+            </div>
+            -->
+            
+            <button (click)="addtestcase()"  type="button"  class="btn btn-success float-right">Add</button>
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+
+    </div>
+
+
+  </div>
+</div>

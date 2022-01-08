@@ -1,0 +1,18 @@
+
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/idea.css';
+@import '~codemirror/addon/fold/foldgutter.css';
+@import '~codemirror/addon/lint/lint.css';
+@import '~animate.css/animate.min';
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+.container {
+    margin: 50px;
+    position: relative;
+}
+

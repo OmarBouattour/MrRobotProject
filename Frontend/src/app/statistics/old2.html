@@ -1,0 +1,199 @@
+<button routerLink="/executions" type="button" class="btn btn-dark">Executions</button>
+<button routerLink="/testcases" type="button" class="btn btn-primary">Test Cases</button>
+
+
+  <div class="mt-3">
+    
+    <div class="">
+      
+      <div class="container" id="accordion">
+        <div class="  firstrow bg-dark datatable">
+              <div class="row row1 ">
+                <div class="col-2 mt-2"> Details</div>
+                
+                <div class="col-7 mt-2">
+                    Test Case
+                  
+                </div>   
+                <div class="col-3 mt-2">
+                  Execution times
+                
+              </div>
+                
+    
+              </div>
+        </div>
+        <div class="card text-black " *ngFor="let execution of tb_suitescount ; let i = index" >
+            <div class="card-header" id="headingOne" >
+                <div class="row ">
+                  <!--Execution-->
+                  <button class="col-1 btn btn-link" data-toggle="collapse" attr.data-target="#collapse{{i+1}}" aria-expanded="false" attr.aria-controls="collapse{{execution.Execution_Id}}">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                  </button>
+                  
+                  <div class="col-7">{{execution.Suite_Name}}</div>
+                  <div class="col-3 text-center">{{execution.Execution_count}}</div>
+                  
+                  <!--Execution-->
+                  
+                </div>
+              
+            </div>
+            
+             <!--Details-->
+            <div attr.id="collapse{{i+1}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+              <div class=" card-body">
+                
+                <div  class=" row secondrow bg-dark ">
+                  
+                
+                  <div class="col-4 mt-2">
+                      Test Case
+                    
+                  </div>   
+                  <div class="col-3 mt-2">
+                    Execution (Date/Time)
+                  
+                </div>
+                  <div class="col-1 mt-2">Execution Time (Seconds)</div>
+                  <div class="col-1 mt-2">Execution Total</div>
+                  
+                  <div class="col-1 mt-2">Execution Pass</div>
+                  <div class="col-1 mt-2">Execution Fail</div>
+                  <div class="col-1 mt-2">Execution Skip</div>
+                  
+                </div>
+                
+                <div  *ngFor="let test of tb_executionssort">
+                  <div class="row border-bottom" *ngIf="test.Suite_Name===execution.Suite_Name">
+                    <div class="col-4">{{test.Suite_Name}}</div>
+                  <div class="col-3">{{test.Execution_Date}}</div>
+                  <div class="col-1">{{test.Execution_Time}}</div>
+                  <div class="col-1">{{test.Suite_Status}}</div>
+                  <div class=" col-1 pass">{{test.Suite_Pass}}</div>
+                  <div class="col-1 fail">{{test.Suite_Fail}}</div>
+                  <div class="col-1 skip">{{test.Suite_Skip}}</div>
+                  </div>
+                  
+                </div>
+                
+                
+                
+                
+                
+                
+              </div>
+            </div>
+            <!--Details-->
+          </div>
+          
+          
+          </div>
+        
+      
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+          
+          <div class="container" id="accordion">
+            <div class="  firstrow bg-dark datatable">
+                  <div class="row row1 ">
+                    <div class="col-1 mt-2"> Details</div>
+                    <div class="col-2 mt-2">
+                      <button class="btn btn-dark" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
+                        Execution Desc
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                      </button>
+                      
+                    </div>
+                    <div class="col-3 mt-2">
+                      <button class="btn btn-dark" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="true" aria-controls="multiCollapseExample1 multiCollapseExample2">
+                        Test Case
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                      </button>
+                      
+                    </div>   
+                    
+                    <div class="col-1 mt-2">Execution Time (Seconds)</div>
+                    <div class="col-1 mt-2">Execution Total</div>
+                    
+                    <div class="col-1 mt-2">Execution Pass</div>
+                    <div class="col-1 mt-2">Execution Fail</div>
+                    <div class="col-2 mt-2">Execution Skip</div>
+        
+                  </div>
+            </div>
+            <div class="card" *ngFor="let execution of tb_executionssort" >
+                <div class="card-header" id="headingOne" >
+                    <div class="row">
+                      <!--Execution-->
+                      <button class="col-1 btn btn-link" data-toggle="collapse" attr.data-target="#collapse{{execution.Execution_Id}}" aria-expanded="false" attr.aria-controls="collapse{{execution.Execution_Id}}">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                      </button>
+                      <div class="col-2">{{execution.Execution_Desc}}</div>
+                      <div class="col-3">{{execution.Suite_Name}}</div>
+                      
+                      <div class="col-1">{{execution.Execution_Time}}</div>
+                      <div class="col-1">{{execution.Suite_Status}}</div>
+                      <div class=" col-1 pass">{{execution.Suite_Pass}}</div>
+                      <div class="col-1 fail">{{execution.Suite_Fail}}</div>
+                      <div class="col-1 skip">{{execution.Suite_Skip}}</div>
+                      <!--Execution-->
+                      
+                    </div>
+                  
+                </div>
+                
+                 <!--Details-->
+                <div attr.id="collapse{{execution.Execution_Id}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class=" card-body">
+                    
+                    <div  class=" row secondrow bg-dark ">
+                      
+                        <div class="col-5 mt-2">Test Name</div>
+                        <div class="col-2 mt-2">Test Status</div>
+                        <div class="col-5 mt-2">Test Error</div>
+                      
+                    </div>
+                    
+                    <div  *ngFor="let test of tb_tests">
+                      <div class="row border-bottom" *ngIf="test.Execution_Id===execution.Execution_Id">
+                        <div class="col-5">{{test.Test_Name}}</div>
+                        <div class="col-1 pass" *ngIf="test.Test_Status === 'PASS'">{{(test.Test_Status)}}</div>
+                        <div class="col-1 fail" *ngIf="test.Test_Status === 'FAIL'">{{(test.Test_Status)}}</div>
+                        <div class="col-5" >{{test.Test_Error}}</div>
+                      </div>
+                      
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                  </div>
+                </div>
+                <!--Details-->
+              </div>
+              
+              
+              </div>
+          
+          
+        </div>
+      
+    </div>
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  
+     
+  </div>

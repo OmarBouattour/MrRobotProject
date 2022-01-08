@@ -1,0 +1,33 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+        <h5 id="response" class="text-danger" ></h5>
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Login</h3>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div class="form-group">
+                <label for="uname1">Username</label>
+                <input class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" type="text" required>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input (keyup.enter)="loginUser()" class="form-control rounded-0" [(ngModel)]="loginUserData.password" name="password" type="password" required>
+              </div>
+              <button type="button" (click)="loginUser()" class="btn btn-success float-right">Login</button>
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+  
+      </div>
+  
+  
+    </div>
+  </div>
+  

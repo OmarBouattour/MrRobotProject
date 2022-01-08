@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img  class="nav-link"  src="../../assets/mr robot logo 1.png" routerLink="/admin">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" *ngIf="_authService.loggedIn()" routerLinkActive="active">Test Cases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/statistics" *ngIf="_authService.loggedIn()" routerLinkActive="">Statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reports" *ngIf="_authService.loggedIn()" routerLinkActive="">Report</a>
+        </li>
+        
+      </ul>
+      <ul *ngIf="_authService.loggedIn()" class="navbar-nav">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-dark dropdown-toggle"
+                  aria-controls="dropdown-basic">
+          </button>
+          <div *ngIf="_authService.loggedIn()"></div>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu w-25"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" routerLink="/register">Register</a></li>
+        
+          </ul>
+        </div>
+<!--
+            <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+
+            <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a> 
+
+-->
+
+          <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a> 
+          <!--
+          <a class="nav-link"  routerLink="/register" routerLinkActive="active">Register</a> -->
+  
+        </ul>
+        
+    </div>
+</nav>    
+
+  

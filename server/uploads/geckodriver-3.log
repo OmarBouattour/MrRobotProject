@@ -1,0 +1,10 @@
+1627234636078	geckodriver	INFO	Listening on 127.0.0.1:60158
+1627234639133	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--ignore-certificate-errors" "-foreground" "-no-remote" "-profile" "C:\\Users\\GMI\\AppData\\Local\\Temp\\rust_mozprofilePocSWv"
+1627234639678	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\GMI\\AppData\\Local\\Temp\\rust_mozprofilePocSWv\\search.json.mozlz4", (void 0)))
+1627234642883	Marionette	INFO	Listening on port 60176
+1627234643324	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627234672285	Marionette	INFO	Stopped listening on port 60176

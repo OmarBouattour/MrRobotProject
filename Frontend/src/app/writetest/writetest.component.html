@@ -1,0 +1,30 @@
+<!--write test-->
+<div class="form-group">
+    <label for="uname1">Name</label>
+    <input [(ngModel)]="writetestcaseData.name" class="form-control"  name="Name" type="text" required>
+  </div>
+<ngx-codemirror
+  [(ngModel)]="writetestcaseData.step1"
+  [options]="codeMirrorOptions"
+></ngx-codemirror>
+  <button type="button" (click)="writetestcase()" class="btn btn-success float-right">Add Test</button>
+  
+
+  <!--
+    <div class="form-outline" id="mytable">
+    <textarea [(ngModel)]="writetestcaseData.step1" class="form-control" id="textAreaExample2" rows="15" placeholder="Write a Test Case"></textarea>
+  </div>
+    <button fileSaver [fileName]="'rr.robot'"
+  [url]="'../../../../server/uploads/rr.robot'" 
+  (click)="onDown('robot', false)"  type="button"  class="btn btn-success float-right">Download File</button>
+
+-->
+  <!--
+    <label>Your Test: </label>
+  <div class="row"   id='display'>
+    {{text}}
+  </div>
+  -->
+
+ 
+  

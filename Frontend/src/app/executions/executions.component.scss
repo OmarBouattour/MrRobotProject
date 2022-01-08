@@ -1,0 +1,64 @@
+.ex1 {
+    margin-left: 80px;
+  }
+
+  .pass{
+    color: green;
+
+}
+.fail{
+    color: red;
+}
+.skip{
+  color: orange;
+}
+button[aria-expanded=true] .fa-bars {
+  display: none;
+}
+button[aria-expanded=false] .fa-chevron-up {
+  display: none;
+}
+.firstrow{
+  
+  color: white;
+  font-size: small;
+  font-weight:bold;
+  margin:auto;
+  height: 70px;
+  
+}
+.secondrow{
+  
+  color: white;
+  font-size: small;
+  font-weight:bold;
+  margin:auto;
+  height: 50px;
+  
+}
+.thirdrow{
+  
+  color: white;
+  font-size: small;
+  font-weight:bold;
+  height: 70px;
+  
+}
+.row1{
+  margin: auto;
+}
+.borderdiv{
+  border-bottom:50px gray;
+}
+
+button[aria-expanded=true] .fa-chevron-down {
+  display: none;
+}
+button[aria-expanded=false] .fa-chevron-up {
+  display: none;
+}
+.newrow{
+  display: flex;
+    flex-wrap: wrap;
+    
+}

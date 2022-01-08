@@ -1,0 +1,15 @@
+
+button[aria-expanded=true] .fa-bars {
+    display: none;
+ }
+ button[aria-expanded=false] .fa-chevron-up {
+    display: none;
+ }
+ p {
+   word-spacing: 9999rem;
+ }
+ p ~ p {
+   /* Undo last assignment */
+   word-spacing: unset;
+   display: table-caption;
+ }

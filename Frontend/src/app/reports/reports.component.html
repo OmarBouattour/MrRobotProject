@@ -1,0 +1,191 @@
+<!--
+  last execution
+  -->
+  <div class="border">
+  <div class=" row d-flex justify-content-center"><h6>Last Execution</h6></div>
+<div class="row" *ngFor="let test of lastexecution; let i = index">
+  <div  class="col  chart-wrapper ">
+      <canvas baseChart 
+      [data]=[test.Execution_Failp,test.Execution_Passp,test.Execution_Skipp]
+      [labels]="doughnutChartLabels"
+      
+      [chartType]="doughnutChartType"
+      [colors]="doughnutChartColors"
+      >
+      
+    </canvas>
+  </div>
+  
+  <div class="col">
+      <h5>
+      <div class="row-3 card size pass text-center" >
+        <div class="mt-2 font-weight-bold">
+          {{test.Execution_Pass}} 
+        </div>
+        <h6 class="text-center">Passed Tests</h6>
+      </div>
+
+      <div class="row-3 card size fail text-center" >
+        <div class="mt-2 font-weight-bold">
+          {{test.Execution_Fail}} 
+        </div>
+        <h6 class="text-center">Failed Tests</h6>
+      </div>
+
+      <div class="row-3 card size skip text-center" >
+        <div class="mt-2 font-weight-bold">
+          {{test.Execution_Skip}} 
+        </div>
+        <h6 class="text-center">Skipped Tests</h6>
+      </div>
+
+      <div class="row-3 card size  text-center" >
+        <div class="mt-2 font-weight-bold">
+          {{test.Execution_Time*60}} s
+        </div>
+        <h6 class="text-center">Duration(seconds)</h6>
+      </div>
+      <div class="row-3 card size  text-center" *ngFor="let execution of tb_executions| slice:0:1 ; let j = index">
+        <div *ngIf="j==0">
+          <div   class="mt-2 font-weight-bold" >
+            {{tb_executions[0].Execution_count/tb_suitescount.length*100 | number : '1.2-2'}}%
+          </div>
+          <h6 class="text-center">Percentage of Test Cases executed</h6>
+        </div>
+      </div>
+      </h5>
+    
+
+  </div>
+  
+  
+  </div>
+</div>
+
+<!--
+  last 10 execution
+  -->
+
+<div class="border mt-2 chart-wrapper">
+  <div *ngFor="let execution of tb_executions | slice:0:1; let i = index">
+    <canvas baseChart 
+    [datasets]="[
+    { data: [tb_executions[i].Execution_Pass,tb_executions[i+1].Execution_Pass,tb_executions[i+2].Execution_Pass,tb_executions[i+3].Execution_Pass,tb_executions[i+4].Execution_Pass,tb_executions[i+5].Execution_Pass,tb_executions[i+6].Execution_Pass,tb_executions[i+7].Execution_Pass,tb_executions[i+8].Execution_Pass,tb_executions[i+9].Execution_Pass,tb_executions[i+10].Execution_Pass], label: 'Pass', backgroundColor :'#48bf46' ,hoverBackgroundColor :'#6dd86c'},
+    { data: [tb_executions[i].Execution_Fail,tb_executions[i+1].Execution_Fail,tb_executions[i+2].Execution_Fail,tb_executions[i+3].Execution_Fail,tb_executions[i+4].Execution_Fail,tb_executions[i+5].Execution_Fail,tb_executions[i+6].Execution_Fail,tb_executions[i+7].Execution_Fail,tb_executions[i+8].Execution_Fail,tb_executions[i+9].Execution_Fail,tb_executions[i+10].Execution_Fail], label: 'Fail', backgroundColor :'#F7464A' ,hoverBackgroundColor :'#fa6c6f'},
+    { data: [tb_executions[i].Execution_Skip,tb_executions[i+1].Execution_Skip,tb_executions[i+2].Execution_Skip,tb_executions[i+3].Execution_Skip,tb_executions[i+4].Execution_Skip,tb_executions[i+5].Execution_Skip,tb_executions[i+6].Execution_Skip,tb_executions[i+7].Execution_Skip,tb_executions[i+8].Execution_Skip,tb_executions[i+9].Execution_Skip,tb_executions[i+10].Execution_Skip], label: 'Skip', backgroundColor :'#FDB45C' ,hoverBackgroundColor :'#f5ba73'}
+  ]"
+    
+    [labels]=[1,2,3,4,5,6,7,8,9,10]
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    >
+  </canvas>
+  </div>
+</div>
+
+<!--
+  last 10 executions time
+  -->
+  <div class="border mt-2 chart-wrapper">
+    <div *ngFor="let execution of tb_executions | slice:0:1; let i = index">
+      <canvas baseChart 
+      [datasets]="[{
+        data: [tb_executions[i].Execution_Time*60,tb_executions[i+1].Execution_Time*60,tb_executions[i+2].Execution_Time*60,tb_executions[i+3].Execution_Time*60,tb_executions[i+4].Execution_Time*60,tb_executions[i+5].Execution_Time*60,tb_executions[i+6].Execution_Time*60,tb_executions[i+7].Execution_Time*60,tb_executions[i+8].Execution_Time*60,tb_executions[i+9].Execution_Time*60,tb_executions[i+10].Execution_Time*60], label: 'Seconds', backgroundColor :'#2EBFCE' ,hoverBackgroundColor :'#11D4E8'
+      
+      }]"
+      [labels]=[1,2,3,4,5,6,7,8,9,10]
+      [options]="barChartOptions3"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      >
+    </canvas>
+    </div>
+  </div>
+
+  <!-- 
+    <div class="border mt-2 chart-wrapper">
+    <div *ngFor="let execution of tb_executions | slice:0:1; let i = index">
+      
+    
+      <canvas baseChart 
+        [data]=[tb_executions[i].Execution_Time*60,tb_executions[i+1].Execution_Time*60,tb_executions[i+2].Execution_Time*60,tb_executions[i+3].Execution_Time*60,tb_executions[i+4].Execution_Time*60,tb_executions[i+5].Execution_Time*60,tb_executions[i+6].Execution_Time*60,tb_executions[i+7].Execution_Time*60,tb_executions[i+8].Execution_Time*60,tb_executions[i+9].Execution_Time*60,tb_executions[i+10].Execution_Time*60]
+        [labels]=[1,2,3,4,5,6,7,8,9,10]
+        [title]="lineChartLabel"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+    
+  </div>
+</div>
+  -->
+
+<!--
+  last 10 execution percentage
+  -->
+  <div class="border mt-2 chart-wrapper">
+    <div *ngFor="let execution of tb_executions | slice:0:1; let i = index">
+      <canvas baseChart 
+      [datasets]="[{
+        data: [tb_executions[i].Execution_count/tb_suitescount.length*100,tb_executions[i+1].Execution_count/tb_suitescount.length*100,tb_executions[i+2].Execution_count/tb_suitescount.length*100,tb_executions[i+3].Execution_count/tb_suitescount.length*100,tb_executions[i+4].Execution_count/tb_suitescount.length*100,tb_executions[i+5].Execution_count/tb_suitescount.length*100,tb_executions[i+6].Execution_count/tb_suitescount.length*100,tb_executions[i+7].Execution_count/tb_suitescount.length*100,tb_executions[i+8].Execution_count/tb_suitescount.length*100,tb_executions[i+9].Execution_count/tb_suitescount.length*100,0,100]        , label: 'Times', backgroundColor :'#5830FF' ,hoverBackgroundColor :'#7C5CFF'
+      
+      }]"
+      [labels]=[1,2,3,4,5,6,7,8,9,10]
+      [options]="barChartOptions4"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      >
+    </canvas>
+    </div>
+  </div>
+
+<!--
+  <div class="border mt-2 chart-wrapper">
+  <div *ngFor="let execution of tb_executions | slice:0:1; let i = index">
+    
+  
+    <canvas baseChart 
+      [data]=[tb_executions[i].Execution_count*10,tb_executions[i+1].Execution_count*10,tb_executions[i+2].Execution_count*10,tb_executions[i+3].Execution_count*10,tb_executions[i+4].Execution_count*10,tb_executions[i+5].Execution_count*10,tb_executions[i+6].Execution_count*10,tb_executions[i+7].Execution_count*10,tb_executions[i+8].Execution_count*10,tb_executions[i+9].Execution_count*10,0,100]
+      [labels]=[1,2,3,4,5,6,7,8,9,10]
+      [title]="lineChartLabel2"
+      [options]="lineChartOptions2"
+      [colors]="lineChartColors2" 
+      [legend]="lineChartLegend" 
+      [chartType]="lineChartType" 
+      [plugins]="lineChartPlugins">
+  </canvas>
+  
+</div>
+</div>
+-->
+
+<!--
+  Test cases execution counter
+  -->
+
+<!--
+  <div class="border mt-2 chart-wrapper">
+  <div *ngFor="let suite of tb_suitescount | slice:0:1; let i = index">
+    <canvas baseChart 
+    [datasets]="[
+    { data: [tb_suitescount[i].Execution_count,tb_suitescount[i+1].Execution_count,tb_suitescount[i+2].Execution_count,tb_suitescount[i+3].Execution_count,tb_suitescount[i+4].Execution_count,tb_suitescount[i+5].Execution_count,tb_suitescount[i+6].Execution_count,tb_suitescount[i+7].Execution_count,tb_suitescount[i+8].Execution_count,tb_suitescount[i+9].Execution_count,0], label: 'Times', backgroundColor :'#48bf46' ,hoverBackgroundColor :'#6dd86c'}
+    
+    ]"
+    
+    [labels]=[tb_suitescount[i].Suite_Name,tb_suitescount[i+1].Suite_Name,tb_suitescount[i+2].Suite_Name,tb_suitescount[i+3].Suite_Name,tb_suitescount[i+4].Suite_Name,tb_suitescount[i+5].Suite_Name,tb_suitescount[i+6].Suite_Name,tb_suitescount[i+7].Suite_Name,tb_suitescount[i+8].Suite_Name,tb_suitescount[i+9].Suite_Name]
+    [options]="barChartOptions2"
+    [plugins]="barChartPlugins2"
+    [legend]="barChartLegend2"
+    [chartType]="barChartType2"
+    >
+  </canvas>
+  </div>
+</div>
+-->
+
